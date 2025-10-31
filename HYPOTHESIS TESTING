@@ -1,0 +1,191 @@
+{
+  "nbformat": 4,
+  "nbformat_minor": 0,
+  "metadata": {
+    "colab": {
+      "provenance": [],
+      "authorship_tag": "ABX9TyODnXnth69XaAn88ybnzHHK",
+      "include_colab_link": true
+    },
+    "kernelspec": {
+      "name": "python3",
+      "display_name": "Python 3"
+    },
+    "language_info": {
+      "name": "python"
+    }
+  },
+  "cells": [
+    {
+      "cell_type": "markdown",
+      "metadata": {
+        "id": "view-in-github",
+        "colab_type": "text"
+      },
+      "source": [
+        "<a href=\"https://colab.research.google.com/github/1998456/1998456/blob/main/HYPOTHESIS%20TESTING\" target=\"_parent\"><img src=\"https://colab.research.google.com/assets/colab-badge.svg\" alt=\"Open In Colab\"/></a>"
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "## HYPOTHESIS TESTING"
+      ],
+      "metadata": {
+        "id": "EBj8WYrwf68C"
+      }
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "1 SAMPLE MEAN"
+      ],
+      "metadata": {
+        "id": "MxOJeonXp-LD"
+      }
+    },
+    {
+      "cell_type": "code",
+      "execution_count": 7,
+      "metadata": {
+        "id": "OyiUIc2FTJcA"
+      },
+      "outputs": [],
+      "source": [
+        "import numpy as np\n",
+        "from scipy import stats"
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Data;\n",
+        "data= [12,15,19,12,14,16,17,13,10]"
+      ],
+      "metadata": {
+        "id": "2HxBDCrlTMsW"
+      },
+      "execution_count": 10,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# known population mean;\n",
+        "pop_mean=15"
+      ],
+      "metadata": {
+        "id": "0w9w9PT9TM7c"
+      },
+      "execution_count": 12,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Performing one sample t-test;\n",
+        "t_stat,p_value= stats.ttest_1samp(data,pop_mean)\n",
+        "print(f\" T-Statistic : {t_stat}\")\n",
+        "print(f\"p_value : {p_value}\")\n",
+        "\n",
+        "if p_value < 0.05:\n",
+        "   print(\"Reject null hypothesis , (Significant difference)\")\n",
+        "else:\n",
+        "  print(\"Fail to reject null hypothesis, (No significant difference)\")"
+      ],
+      "metadata": {
+        "id": "-QVpT6NcTNGg",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "90b73ceb-468d-4b42-93a6-beac03762ed5"
+      },
+      "execution_count": 14,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            " T-Statistic : -0.8278373543847165\n",
+            "p_value : 0.4317629616012687\n",
+            "Fail to reject null hypothesis, (No significant difference)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "markdown",
+      "source": [
+        "2 SAMPLE DATASET"
+      ],
+      "metadata": {
+        "id": "GMoI6TbIqG1u"
+      }
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Data;\n",
+        "G1= [12,13,14,12,17]\n",
+        "G2= [14,25,17,18,19]\n",
+        "\n"
+      ],
+      "metadata": {
+        "id": "hah_dnr1kBHD"
+      },
+      "execution_count": 15,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [
+        "# Perforing 2 sample t-test;\n",
+        "t_test,p_value= stats.ttest_ind(G1,G2)\n",
+        "print(f\"T-Statistic : {t_test}\")\n",
+        "print(f\"p_value : {p_value}\")\n",
+        "\n",
+        "if p_value < 0.05:\n",
+        "   print(\"Reject null hypothesis , (Significant difference)\")\n",
+        "else:\n",
+        "  print(\"Fail to reject null hypothesis, (No significant difference)\")"
+      ],
+      "metadata": {
+        "id": "qvOw1cAvkBTS",
+        "colab": {
+          "base_uri": "https://localhost:8080/"
+        },
+        "outputId": "951772ef-b535-488a-c598-6c4e455ced74"
+      },
+      "execution_count": 16,
+      "outputs": [
+        {
+          "output_type": "stream",
+          "name": "stdout",
+          "text": [
+            "T-Statistic : -2.4633231954107337\n",
+            "p_value : 0.03911554219758712\n",
+            "Reject null hypothesis , (Significant difference)\n"
+          ]
+        }
+      ]
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "er3hLwfOkBXa"
+      },
+      "execution_count": null,
+      "outputs": []
+    },
+    {
+      "cell_type": "code",
+      "source": [],
+      "metadata": {
+        "id": "rFwDtNUHkBZe"
+      },
+      "execution_count": null,
+      "outputs": []
+    }
+  ]
+}
